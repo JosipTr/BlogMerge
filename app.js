@@ -4,6 +4,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const bodyParser = require("body-parser");
+const flash = require('connect-flash');
 
 const controller = require("./controllers/error");
 const router = require("./routes/index");
@@ -17,6 +19,7 @@ const store = new MongoDBStore({
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+app.use(flash());
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -28,8 +31,13 @@ app.use(
     store: store,
   })
 );
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  next();
+});
 
 app.use(router.homeRouter);
+app.use(router.authRouter);
 
 app.use(controller.get404);
 app.use(controller.get500);

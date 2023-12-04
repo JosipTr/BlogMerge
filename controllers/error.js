@@ -5,6 +5,7 @@ exports.get404 = (req, res, next) => {
 };
 
 exports.get500 = (error, req, res, next) => {
+  console.log(error);
   res
     .status(500)
     .render("error/500", { title: "Error 500 - Internal Server Error", path: null });
