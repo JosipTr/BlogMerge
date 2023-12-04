@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
+const controller = require("./controllers/error");
 const router = require("./routes/index");
 
 const app = express();
@@ -29,6 +30,9 @@ app.use(
 );
 
 app.use(router.homeRouter);
+
+app.use(controller.get404);
+app.use(controller.get500);
 
 mongoose
   .connect(MONGO_DB_URI)
