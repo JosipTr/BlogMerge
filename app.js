@@ -11,8 +11,9 @@ const store = new MongoDBStore({
   collection: "sessions",
 });
 
-app.set(express.static("public"));
+app.set("view engine", "ejs");
 
+app.use(express.static("public"));
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
