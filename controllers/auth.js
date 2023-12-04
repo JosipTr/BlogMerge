@@ -57,7 +57,6 @@ exports.getRegister = (req, res, next) => {
 };
 
 exports.postRegister = (req, res, next) => {
-  const username = req.body.username;
   const email = req.body.email;
   const password = req.body.password;
   const result = validationResult(req);
@@ -77,7 +76,6 @@ exports.postRegister = (req, res, next) => {
         .hash(password, 12)
         .then((hashedPassword) => {
           const user = new User({
-            username: username,
             email: email,
             password: hashedPassword,
           });
