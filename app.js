@@ -2,10 +2,28 @@ const MONGO_DB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONG
 
 const express = require("express");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const app = express();
+const store = new MongoDBStore({
+  uri: MONGO_DB_URI,
+  collection: "sessions",
+});
 
 app.set(express.static("public"));
+
+app.use(
+  session({
+    secret: process.env.COOKIE_SECRET,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, //1 week
+    },
+    resave: false,
+    saveUninitialized: false,
+    store: store,
+  })
+);
 
 mongoose
   .connect(MONGO_DB_URI)

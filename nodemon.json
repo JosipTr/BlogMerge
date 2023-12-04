@@ -2,6 +2,7 @@
   "env": {
     "MONGO_USER": "test",
     "MONGO_DATABASE": "blog",
-    "MONGO_PASSWORD": "iKifLePc9UR7BKOR"
+    "MONGO_PASSWORD": "iKifLePc9UR7BKOR",
+    "COOKIE_SECRET": "&(kTyj#b^*q#Tb8^"
   }
 }
