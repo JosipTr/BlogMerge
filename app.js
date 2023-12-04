@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 
+const router = require("./routes/index");
+
 const app = express();
 const store = new MongoDBStore({
   uri: MONGO_DB_URI,
@@ -25,6 +27,8 @@ app.use(
     store: store,
   })
 );
+
+app.use(router.homeRouter);
 
 mongoose
   .connect(MONGO_DB_URI)
