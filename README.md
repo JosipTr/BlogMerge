@@ -32,7 +32,7 @@ BlogMerge is a web application for blogging built using Node.js, Express.js, CSS
 
 In the `.env` file, set the following variables:
 
-MONGO_USER=your-mongodb-username
-MONGO_PASSWORD=your-mongodb-password
-MONGO_DATABASE=your-database-name
-COOKIE_SECRET=cookie-secret-key
+MONGO_USER=your-mongodb-username__
+MONGO_PASSWORD=your-mongodb-password__
+MONGO_DATABASE=your-database-name__
+COOKIE_SECRET=cookie-secret-key__
