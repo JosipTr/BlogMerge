@@ -3,6 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px;
+    border: 1px solid white;
+    border-radius: 8px;
+    border-color: white;
 }
 
 .post-item {
@@ -10,10 +14,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
-    border-radius: 8px;
-    border-color: white;
-    min-width: 800px;
+    flex-wrap: wrap;
+    max-width: 1000px;
 }
 
-/* Add additional styling as needed */
+.content p {
+    text-align: start;
+    flex-wrap: wrap;
+    max-width: 1000px;
+}
