@@ -40,10 +40,10 @@ app.use((req, res, next) => {
 
 app.use(router.homeRouter);
 app.use(router.authRouter);
+app.use("/blog", router.blogRouter);
 
 app.use(controller.get404);
 app.use(controller.get500);
-
 
 mongoose
   .connect(MONGO_DB_URI)

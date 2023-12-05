@@ -1,0 +1,16 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/blog-form.css">
+</head>
+<%- include('../includes/header.ejs') %>
+<section>
+  <form action="/blog/add-blog" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" rows="8" required></textarea>
+
+    <button type="submit">Publish Blog</button>
+  </form>
+</section>
+<%- include('../includes/footer.ejs') %>
