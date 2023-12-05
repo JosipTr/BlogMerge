@@ -2,6 +2,7 @@ const Blog = require("../models/blog");
 
 exports.getMyBlog = (req, res, next) => {
   Blog.find()
+  .populate("user")
     .then((result) => {
       if (!result) {
         return res.redirect("/");
@@ -28,14 +29,13 @@ exports.postAddPost = (req, res, next) => {
     title: title,
     content: content,
     public: isPublic,
-    userId: user
+    user: user
   });
 
   blog
     .save()
     .then((result) => {
       console.log("Blog created");
-      console.log(result.userId);
       return res.redirect("/");
     })
     .catch((err) => {
