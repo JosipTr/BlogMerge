@@ -1,11 +1,11 @@
 const Post = require("../models/post");
 
 exports.getMyBlog = (req, res, next) => {
-  Post.find()
-  .populate("user")
+  Post.find({ user: req.session.user._id })
+    .populate("user")
     .then((result) => {
       if (!result) {
-        return res.redirect("/");
+        return res.render("blog/my-blog", { title: "My Blog", posts: [] });
       }
       return res.render("blog/my-blog", { title: "My Blog", posts: result });
     })
@@ -29,7 +29,7 @@ exports.postAddPost = (req, res, next) => {
     title: title,
     content: content,
     public: isPublic,
-    user: user
+    user: user,
   });
 
   post
