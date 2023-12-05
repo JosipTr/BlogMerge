@@ -1,13 +1,13 @@
-const Blog = require("../models/blog");
+const Post = require("../models/post");
 
 exports.getMyBlog = (req, res, next) => {
-  Blog.find()
+  Post.find()
   .populate("user")
     .then((result) => {
       if (!result) {
         return res.redirect("/");
       }
-      return res.render("blog/my-blog", { title: "My Blog", blog: result });
+      return res.render("blog/my-blog", { title: "My Blog", posts: result });
     })
     .catch((err) => {
       next(new Error(err));
@@ -25,17 +25,17 @@ exports.postAddPost = (req, res, next) => {
   const user = req.session.user;
   console.log("User:", user);
 
-  const blog = new Blog({
+  const post = new Post({
     title: title,
     content: content,
     public: isPublic,
     user: user
   });
 
-  blog
+  post
     .save()
     .then((result) => {
-      console.log("Blog created");
+      console.log("Post created");
       return res.redirect("/");
     })
     .catch((err) => {
@@ -43,16 +43,16 @@ exports.postAddPost = (req, res, next) => {
     });
 };
 
-exports.getBlog = (req, res, next) => {
+exports.getPost = (req, res, next) => {
   const id = req.params.id;
-  Blog.findById(id)
+  Post.findById(id)
     .then((result) => {
       if (!result) {
         return res.redirect("/my-blog");
       }
-      return res.render("blog/blog-detail", {
-        title: "Blog details",
-        blog: result,
+      return res.render("blog/post-detail", {
+        title: "Post details",
+        post: result,
       });
     })
     .catch((err) => {

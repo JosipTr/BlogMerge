@@ -6,7 +6,7 @@
 <section class="post-list">
   <h2>My Blog</h2>
   <ul>
-    <% blog.forEach(post => { %>
+    <% posts.forEach(post => { %>
       <li>
         <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %><span> Delete</span>
       </li>
