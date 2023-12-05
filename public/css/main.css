@@ -1,68 +1,124 @@
-  body {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    min-height: 100vh;
-    font-family: "Kanit";
-    background-image: linear-gradient(#355c7d, #c06c84);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: white;
+@font-face {
+  font-family: "Kanit";
+  src: url("../fonts/Kanit-Regular.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Kanit";
+  background-image: linear-gradient(#355c7d, #c06c84);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-container h1 {
+  font-size: 2rem;
+}
+
+.header-container h1:hover {
+  color: skyblue;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.nav-container ul {
+  display: flex;
+  gap: 50px
+}
+
+.nav-container ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-container ul a.active {
+  color: #f67280;
+}
+
+.nav-container ul a:hover {
+  color: skyblue;
+}
+
+a {
+  text-decoration: none;
+  color:skyblue
+}
+
+.main-container {
+  flex: 1;
+  padding: 25px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-container img {
+  height: auto;
+  width: 25px;
+}
+
+.button-46 {
+  align-items: center;
+  font-family: "Kanit";
+  color: inherit;
+  border: 1px solid #DFDFDF;
+  border-radius: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  background-color: transparent;
+  justify-content: center;
+  line-height: 28px;
+  max-width: 100%;
+  padding: 5px;
+  text-decoration: none;
+  transition: all .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-46:active,
+.button-46:hover {
+  outline: 0;
+}
+
+.button-46:hover {
+  background-color: #FFFFFF;
+  color: skyblue;
+  border-color: rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width: 768px) {
+  .button-46 {
+    font-size: 20px;
+    min-width: 100px;
+    
   }
-  
-  .header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .header-container h1 {
-    font-size: 2rem;
-  }
-  
-  .header-container h1:hover {
-    color: #f67280;
-  }
-  
-  .nav-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    gap: 50px;
-    flex-wrap: wrap;
-  }
-  
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: skyblue;
-  }
-  
-  a.active {
-    color: #f67280;
-  }
-  
-  .main-container {
-    flex: 1;
-    padding: 25px;
-  }
-  
-  .footer-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .footer-container img {
-    height: auto;
-    width: 25px;
-  }
+}

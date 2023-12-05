@@ -1,0 +1,24 @@
+.home-container {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 100px;
+}
+
+.welcome {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 25px;
+}
+.welcome p {
+  max-width: 400px;
+}
+
+.get-started {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 25px;
+}

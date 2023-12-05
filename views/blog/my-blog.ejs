@@ -4,14 +4,14 @@
 <%- include('../includes/header.ejs') %>
 
 <section class="post-list">
-  <h2>My Blog</h2>
+  <h2>My Blog</h2>  
   <ul>
     <% posts.forEach(post => { %>
-    <li>
+    <li class="post-item">
       <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %> <span>
         <form action="/blog" method="post">
           <input type="hidden" name="id" value="<%= post._id %>">
-          <button type="submit">Delete</button>
+          <button class="button-46" type="submit">Delete</button>
         </form>
       </span>
     </li>

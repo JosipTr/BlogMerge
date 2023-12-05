@@ -1,12 +1,15 @@
 const Post = require("../models/post");
 
 exports.getHome = (req, res, next) => {
-  Post.find({ public: "true" })
+  if (req.session.isLoggedIn) {
+    return Post.find({ public: "true" })
     .populate("user")
     .then((result) => {
-      res.render("home/home", { title: "BlogMerge", posts: result });
+      return res.render("home/home-blog", { title: "BlogMerge", posts: result });
     })
     .catch((err) => {
       next(new Error(err));
     });
+  }
+  return res.render("home/home", { title: "BlogMerge"});
 };

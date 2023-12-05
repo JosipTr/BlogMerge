@@ -1,17 +1,26 @@
 <%- include("../includes/head.ejs")  %>
-<link rel="stylesheet" href="/css/post-list.css">
+<link rel="stylesheet" href="/css/home.css">
 </head>
 <%- include("../includes/header.ejs")  %>
-<h1>Home page</h1>
+<article class="home-container">
 
-<section class="post-list">
-    <h2>Public posts</h2>
-    <ul>
-      <% posts.forEach(post => { %>
-        <li>
-          <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %> <span> Delete</span>
-        </li>
-      <% }); %>
-    </ul>
+  <section class="welcome">
+    <h2>Welcome to BlogMerge</h2>
+    <h3>Where Words Meet the Screen</h3>
+    <p>Discover the joy of sharing your thoughts and stories with the world. Join our community of writers, bloggers, and storytellers to express yourself freely.</p>
   </section>
+
+  <section class="get-started">
+    <h2>Get Started Today</h2>
+    <p>Don't miss out on the excitement. Start your writing journey now!</p>
+    <ul>
+      <li><strong>Explore:</strong> Dive into a world of diverse stories and ideas.</li>
+      <li><strong>Write:</strong> Share your own experiences, thoughts, and creativity.</li>
+      <li><strong>Connect:</strong> Engage with a supportive community of fellow writers.</li>
+    </ul>
+    <p>Ready to get started? <a href="/register">Register</a> for free and join MyBlogs today!</p>
+  </section>
+
+</article>
+
 <%- include("../includes/footer.ejs")  %>

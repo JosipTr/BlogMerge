@@ -1,36 +1,23 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-}
-
-.blog-list {
+.post-list {
     max-width: 800px;
     margin: 20px auto;
 }
 
-h2 {
-    color: #343a40;
-}
-
-ul {
+.post-list ul {
     list-style-type: none;
     padding: 0;
 }
 
-li {
+.post-list  li {
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 20px;
     margin-bottom: 10px;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
+.post-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Add additional styling as needed */
