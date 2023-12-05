@@ -46,6 +46,7 @@ exports.postAddPost = (req, res, next) => {
 exports.getPost = (req, res, next) => {
   const id = req.params.id;
   Post.findById(id)
+  .populate("user")
     .then((result) => {
       if (!result) {
         return res.redirect("/");
