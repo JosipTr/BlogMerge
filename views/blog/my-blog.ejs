@@ -1,0 +1,17 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/post-list.css">
+</head>
+<%- include('../includes/header.ejs') %>
+
+<section class="post-list">
+  <h2>My Blog</h2>
+  <ul>
+    <% blog.forEach(post => { %>
+      <li>
+        <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.author %><span> Delete</span>
+      </li>
+    <% }); %>
+  </ul>
+</section>
+
+<%- include('../includes/footer.ejs') %>

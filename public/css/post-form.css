@@ -44,4 +44,8 @@ footer {
     margin-top: 20px;
 }
 
+.radio-container {
+    display: flex;
+}
+
 /* Add additional styling as needed */
