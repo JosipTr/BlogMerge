@@ -10,4 +10,6 @@ router.get("/add-post", isAuth, controller.getAddPost);
 
 router.post("/add-post", isAuth, controller.postAddPost);
 
+router.post("/", isAuth, controller.deletePost);
+
 module.exports = router;

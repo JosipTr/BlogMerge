@@ -48,12 +48,23 @@ exports.getPost = (req, res, next) => {
   Post.findById(id)
     .then((result) => {
       if (!result) {
-        return res.redirect("/my-blog");
+        return res.redirect("/");
       }
       return res.render("blog/post-detail", {
         title: "Post details",
         post: result,
       });
+    })
+    .catch((err) => {
+      next(new Error(err));
+    });
+};
+
+exports.deletePost = (req, res, next) => {
+  Post.findByIdAndDelete(req.body.id)
+    .then((result) => {
+      console.log("Post deleted!");
+      res.redirect("/blog");
     })
     .catch((err) => {
       next(new Error(err));
