@@ -2,13 +2,17 @@
 <link rel="stylesheet" href="/css/my-blog.css">
 </head>
 <%- include('../includes/header.ejs') %>
-<section class="post-list">
-  <article class="post-item">
+<article class="post-article">
+  <section class="post-item">
+
     <h2><%= post.title %></h2>
+
     <p class="author">Written by: <%= post.user.email %></p>
+
     <div class="content">
       <%= post.content %>>
     </div>
-  </article>
 </section>
+</article>
+
 <%- include('../includes/footer.ejs') %>
