@@ -85,15 +85,8 @@ exports.postEditPost = (req, res, next) => {
   const title = req.body.title;
   const content = req.body.content;
   const user = req.session.user;
-  let isPublic = req.body.public;
+  const isPublic = req.body.public;
   const id = req.body.id;
-  if (req.body.public === "false") {
-    console.log("da")
-  } else {
-    console.log("ne")
-  }
-  console.log("Type:")
-  console.log(typeof(isPublic));
 
   Post.findByIdAndUpdate(id, {title: title, content: content, public: isPublic, user: user._id})
     .then((post) => {
