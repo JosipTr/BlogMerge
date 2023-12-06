@@ -1,22 +1,18 @@
 <%- include('../includes/head.ejs') %>
 <link rel="stylesheet" href="/css/post-list.css">
+<script src="/script/my-blog.js" defer></script>
 </head>
 <%- include('../includes/header.ejs') %>
 
 <section class="post-list">
-  <h2>My Blog</h2>  
   <ul>
     <% posts.forEach(post => { %>
     <li class="post-item">
       <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %> <span>
-        <form action="/blog" method="post">
-          <input type="hidden" name="id" value="<%= post._id %>">
-          <button class="button-46" type="submit">Delete</button>
-        </form>
+        <button class="button-46" type="button" value="<%= post._id %>">Delete</button>
       </span>
     </li>
     <% }); %>
   </ul>
 </section>
-
 <%- include('../includes/footer.ejs') %>

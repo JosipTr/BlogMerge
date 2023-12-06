@@ -62,12 +62,12 @@ exports.getPost = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-  Post.findByIdAndDelete(req.body.id)
+  Post.findByIdAndDelete(req.params.postId)
     .then((result) => {
       console.log("Post deleted!");
-      res.redirect("/blog");
+      res.status(200).json({message: "Success!"});
     })
     .catch((err) => {
-      next(new Error(err));
+      res.status(500).json({message: "Failure!"});
     });
 };

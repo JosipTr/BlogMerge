@@ -10,6 +10,6 @@ router.get("/:id", isAuth, controller.getPost);
 
 router.post("/add-post", isAuth, controller.postAddPost);
 
-router.post("/", isAuth, controller.deletePost);
+router.delete("/:postId", isAuth, controller.deletePost);
 
 module.exports = router;
