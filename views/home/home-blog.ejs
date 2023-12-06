@@ -4,12 +4,11 @@
 <%- include("../includes/header.ejs")  %>
 <section class="post-list">
   <h2>Public posts</h2>
-  <ul>
-    <% posts.forEach(post => { %>
-    <li>
-      <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %>
-    </li>
-    <% }); %>
-  </ul>
+
+  <% posts.forEach(post => { %>
+  <div class="post-item">
+    <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %>
+  </div>
+  <% }); %>
 </section>
 <%- include("../includes/footer.ejs")  %>

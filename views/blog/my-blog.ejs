@@ -5,14 +5,14 @@
 <%- include('../includes/header.ejs') %>
 
 <section class="post-list">
-  
-    <% posts.forEach(post => { %>
-    <div class="post-item">
-      <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %> <span>
-        <button class="button-46" type="button" value="<%= post._id %>">Delete</button>
-      </span>
-    </div>
-    <% }); %>
-  
+  <h2>Your posts</h2>
+  <% posts.forEach(post => { %>
+  <div class="post-item">
+    <a href="/blog/<%= post._id %>"><%= post.title %></a> by <%= post.user.email %> <span>
+      <button class="button-46" type="button" value="<%= post._id %>">Delete</button>
+    </span>
+  </div>
+  <% }); %>
+
 </section>
 <%- include('../includes/footer.ejs') %>

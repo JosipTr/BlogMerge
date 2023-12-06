@@ -64,7 +64,6 @@ exports.getPost = (req, res, next) => {
 exports.deletePost = (req, res, next) => {
   Post.findByIdAndDelete(req.params.postId)
     .then((result) => {
-      console.log("Post deleted!");
       res.status(200).json({message: "Success!"});
     })
     .catch((err) => {
