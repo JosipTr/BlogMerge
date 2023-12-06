@@ -1,21 +1,10 @@
-.post-list {
+.post-item {
     max-width: 800px;
     margin: 20px auto;
-}
-
-.post-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.post-list  li {
     border: 1px solid white;
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 10px;
-}
-
-.post-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
