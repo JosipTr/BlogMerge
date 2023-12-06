@@ -1,16 +1,22 @@
 .post-item {
-    max-width: 800px;
-    margin: 20px auto;
-    border: 1px solid white;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post-list h2 {
-    text-align: center;
+  text-align: center;
+}
+
+.post-item span {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }

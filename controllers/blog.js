@@ -61,6 +61,51 @@ exports.getPost = (req, res, next) => {
     });
 };
 
+exports.getEditPost = (req, res, next) => {
+  const id = req.params.id;
+  Post.findById(id)
+  .populate("user")
+    .then((result) => {
+      if (!result) {
+        return res.redirect("/");
+      }
+      console.log(result.content);
+      return res.render("blog/edit-post", {
+        title: "Edit post",
+        post: result,
+      });
+    })
+    .catch((err) => {
+      next(new Error(err));
+    });
+};
+
+
+exports.postEditPost = (req, res, next) => {
+  const title = req.body.title;
+  const content = req.body.content;
+  const user = req.session.user;
+  let isPublic = req.body.public;
+  const id = req.body.id;
+  if (req.body.public === "false") {
+    console.log("da")
+  } else {
+    console.log("ne")
+  }
+  console.log("Type:")
+  console.log(typeof(isPublic));
+
+  Post.findByIdAndUpdate(id, {title: title, content: content, public: isPublic, user: user._id})
+    .then((post) => {
+      console.log(post);
+      console.log("Post updated");
+      return res.redirect("/blog");
+    })
+    .catch((err) => {
+      next(new Error(err));
+    });
+};
+
 exports.deletePost = (req, res, next) => {
   Post.findByIdAndDelete(req.params.postId)
     .then((result) => {

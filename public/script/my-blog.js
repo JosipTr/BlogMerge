@@ -1,4 +1,4 @@
-const deleteBtn = document.querySelectorAll(".button-46");
+const deleteBtn = document.querySelectorAll("#deleteBtn");
 
 if (deleteBtn.length === 0) {
   const postList = document.querySelector(".post-list");
