@@ -1,11 +1,13 @@
 const MONGO_DB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@blog.7hdbewe.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
+const path = require('path');
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
+const favicon = require('serve-favicon');
 
 const controller = require("./controllers/error");
 const router = require("./routes/index");
@@ -19,6 +21,7 @@ const store = new MongoDBStore({
 app.set("view engine", "ejs");
 
 app.use(express.static("public"));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
